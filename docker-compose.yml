@@ -1,0 +1,20 @@
+version: '3'
+services:
+  webserver:
+    image: nginx
+    container_name: webserver
+    ports:
+      - "85:85"
+      - "8005:8005"
+      - "8006:8006"
+    volumes:
+      - ./project1/:/var/www/project1
+      - ./conf.d/:/etc/nginx/conf.d
+    networks:
+      - app-network
+
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
