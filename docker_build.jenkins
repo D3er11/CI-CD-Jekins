@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage("create docker image") {
             steps {
-                echo " ============== start building image ==================
+                echo " ============== start building image ================== "
                     sh 'docker-compose build'
                    	sh 'docker-compose up -d'
                 }
