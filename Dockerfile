@@ -1,3 +1,5 @@
+FROM nginx
+
 RUN mkdir -p /var/www/project2
 
 RUN mkdir -p /var/www/project1
