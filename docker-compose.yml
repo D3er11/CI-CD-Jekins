@@ -2,7 +2,7 @@ version: '3'
 services:
   webserver:
     image: nginx
-    container_name: webserver
+    container_name: webserver2
     ports:
       - "85:85"
       - "8005:8005"
