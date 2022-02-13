@@ -28,10 +28,16 @@ pipeline {
                  
                    echo $c
                    echo hello
-                   '''
-                
+                   '''   
             }
         }
-        
-    }
+        stage ('Deploy') {
+            steps{
+                sshagent(credentials : ['ubu2'])
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.56.134.251 uptime'
+                sh 'ssh -v ubuntu@52.56.134.251'
+                //sh 'scp ./source/filename user@hostname.com:/remotehost/target'
+            }
+        }
+    }   
 }
