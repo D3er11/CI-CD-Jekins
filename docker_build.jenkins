@@ -26,8 +26,9 @@ pipeline {
                 //   '''
                 sh '''#!/bin/bash
                  
-                 echo $c
-                '''
+                   echo $c
+                   echo hello
+                   '''
                 
             }
         }
