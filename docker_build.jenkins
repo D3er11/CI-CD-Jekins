@@ -25,7 +25,7 @@ pipeline {
                 //      docker run -d -p 85:85 app:$c bash 
                 //   '''
                 sh '''#!/bin/bash
-                 c=$((c++))
+                 
                  echo $c
                 '''
                 
