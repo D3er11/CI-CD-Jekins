@@ -16,7 +16,7 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image ================== "
-                bash '$c=$((c++))
+                bash '$c=$((c++))'
                 bash 'docker build -t app:$c .'
                 bash 'docker run -d -p 85:85 app:$c bash'
                 
