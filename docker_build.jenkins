@@ -16,10 +16,10 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image ================== "
-                sh 'c=0'
-                sh 'c=$((c+1))'
-                sh 'docker build -t app:$c .'
-                sh 'docker run -d -p 85:85 app:$c bash'
+                bash 'c=0'
+                bash 'c=$((c+1))'
+                bash 'docker build -t app:$c .'
+                bash 'docker run -d -p 85:85 app:$c bash'
                 
             }
         }
