@@ -25,8 +25,8 @@ pipeline {
                 sh 'c=0'
                 sh 'c=$((c+1))' 
                 sh "docker build -t ${NAME} ."
-                sh "$VERSION $IMAGE $NAME"
-                sh 'docker run -d -p 85:85 ${NAME} bash'
+                sh "$VERSION $IMAGE $NAME $env.BUILD_ID $env.GIT_COMMIT"
+                //sh 'docker run -d -p 85:85 ${NAME} bash'
             }
         }
         
