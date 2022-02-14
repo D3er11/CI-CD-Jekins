@@ -16,8 +16,8 @@ pipeline {
                 echo " ============== start building image ================== "
                 sh 'c=0'
                 sh 'c=$((c+1))'
-                sh 'docker build -t app:$c .'
-                sh 'docker run -d -p 85:85 app:$c bash' 
+                sh 'docker build -t .'
+                sh 'docker run -d -p 85:85 bash' 
             }
         }
         
