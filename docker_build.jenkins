@@ -19,14 +19,32 @@ pipeline {
     }
     
     stages {
+        stage("docker login") {
+            steps {
+                echo " ============== docker login =================="
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_d3er11', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
+                }
+            }
+        }
         stage("create docker image") {
             steps {
                 echo " ============== start building image ================== "
                 sh 'c=0'
                 sh 'c=$((c+1))' 
-                sh "docker build -t ${IMAGE} ."
+                sh "docker build -t d3er11/${IMAGE} ."
                 sh "echo $VERSION $IMAGE $NAME $env.BUILD_ID $env.GIT_COMMIT"
                 sh 'docker run -d -p 85:85 ${IMAGE}'
+            }
+        }
+        stage("docker push") {
+            steps {
+                echo " ============== start pushing image =================="
+                sh '''
+                docker push d3er11/${IMAGE}
+                '''
             }
         }
         
