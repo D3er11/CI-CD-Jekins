@@ -24,9 +24,9 @@ pipeline {
                 echo " ============== start building image ================== "
                 sh 'c=0'
                 sh 'c=$((c+1))' 
-                sh "docker build -t ${NAME} ."
+                sh "docker build -t ${IMAGE} ."
                 sh "echo $VERSION $IMAGE $NAME $env.BUILD_ID $env.GIT_COMMIT"
-                //sh 'docker run -d -p 85:85 ${NAME} bash'
+                sh 'docker run -d -p 85:85 ${IMAGE} bash'
             }
         }
         
