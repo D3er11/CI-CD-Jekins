@@ -36,7 +36,7 @@ pipeline {
                 sh 'c=$((c+1))' 
                 sh "docker build -t d3er11/${IMAGE} ."
                 sh "echo $VERSION $IMAGE $NAME $env.BUILD_ID $env.GIT_COMMIT"
-                sh 'docker run -d -p 85:85 ${IMAGE}'
+                sh 'docker run -d -p 85:85 d3er11/${IMAGE}'
             }
         }
         stage("docker push") {
