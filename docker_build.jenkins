@@ -47,6 +47,16 @@ pipeline {
                 '''
             }
         }
+        stage("docker kill") {
+            steps {
+                echo " ============== stop and remove image =================="
+                sh '''
+                docker stop $(docker ps -aq  --filter ancestor=d3er11/${IMAGE})
+                docker rmi d3er11/${IMAGE}
+                '''
+            }
+        }
+        
         
     }   
 }
