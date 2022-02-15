@@ -60,7 +60,7 @@ pipeline {
             steps {
                 echo " ============== Deploy image =================="
                 sh '''
-                ssh -i key1.pem ubuntu@3.8.196.93 "sudo docker pull d3er11/${IMAGE}"
+                ssh -i madclown.pem ubuntu@3.8.196.93 "sudo docker pull d3er11/${IMAGE}"
                 '''
             }
         }
