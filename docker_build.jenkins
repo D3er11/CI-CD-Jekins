@@ -32,8 +32,6 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image ================== "
-                sh 'c=0'
-                sh 'c=$((c+1))' 
                 sh "docker build -t d3er11/${IMAGE} ."
                 sh "echo $VERSION $IMAGE $NAME $env.BUILD_ID $env.GIT_COMMIT"
                 sh 'docker run -d -p 85:85 d3er11/${IMAGE}'
